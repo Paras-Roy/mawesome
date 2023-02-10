@@ -53,17 +53,15 @@ export default function Home() {
             </a>
           </div>
         </div>
-
-        <p>
-          {/* <form onSubmit={e => {
+        <>
+        <form onSubmit={e => {
             e.preventDefault();
             getWeather(e.target.city.value);
           }}>
             <input type="text" name="city" />
             <button type="submit">Get weather</button>
-          </form> */}
-
-          {/* {
+          </form>
+          {
             weather &&
             <>
               <p>Weather in {weather.name}</p>
@@ -74,8 +72,8 @@ export default function Home() {
               <p>Wind speed: {weather.wind.speed}</p>
               <p>Max Temp</p>
             </>
-          } */}
-        </p>
+          }
+        </>          
 
         <div className={styles.center}>
           <Image
