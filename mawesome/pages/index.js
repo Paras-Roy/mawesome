@@ -2,23 +2,23 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
   const getWeather = async (city) => {
-    try {
-      const response = await fetch(`https://mawesome-api.vercel.app/weather/${city}`);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch weather information for ${city} with status code ${response.status}`);
-      }
-      const data = await response.json();
-      setWeather(data);
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
+      // const response = await fetch(`https://mawesome-api.vercel.app/weather/london`);
+      // const data = await response.json();
+    const response = null
+    const data = null
+      fetch(`https://mawesome-api.vercel.app/weather/london`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    setWeather(data);
+    console.log(data);
   };
   useEffect(() => {
     getWeather('London');
