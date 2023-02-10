@@ -6,6 +6,24 @@ import styles from '@/styles/Home.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [weather, setWeather] = useState(null);
+  const getWeather = async (city) => {
+    try {
+      const response = await fetch(`http://localhost:3000/weather/${city}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch weather information for ${city} with status code ${response.status}`);
+      }
+      const data = await response.json();
+      setWeather(data);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+  useEffect(() => {
+    getWeather('London');
+  }, []);
+
   return (
     <>
       <Head>
@@ -17,8 +35,13 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
+            {weather && (
+              <>
+                <span>Weather in {weather.name}:</span>
+                <span>{weather.weather[0].description}</span>
+                <span>Temperature: {weather.main.temp}</span>
+              </>
+            )}
           </p>
           <div>
             <a
