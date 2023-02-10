@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState(null);
   const getWeather = async (city) => {
       // const response = await fetch(`https://mawesome-api.vercel.app/weather/london`);
       // const data = await response.json();
@@ -53,7 +53,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <>
         <form onSubmit={e => {
             e.preventDefault();
             getWeather(e.target.city.value);
@@ -72,8 +71,7 @@ export default function Home() {
               <p>Wind speed: {weather.wind.speed}</p>
               <p>Max Temp</p>
             </>
-          }
-        </>          
+          }        
 
         <div className={styles.center}>
           <Image
