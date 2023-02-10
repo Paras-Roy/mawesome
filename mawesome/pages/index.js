@@ -9,7 +9,7 @@ export default function Home() {
   const [weather, setWeather] = useState(null);
   const getWeather = async (city) => {
     try {
-      const response = await fetch(`http://localhost:3000/weather/${city}`);
+      const response = await fetch(`https://mawesome-api.vercel.app//weather/${city}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch weather information for ${city} with status code ${response.status}`);
       }
