@@ -17,7 +17,7 @@ const getWeather = async (city) => {
     }
 };
 
-router.get('/:city', async (req, res) => {
+router.get('/:city', async (req, res) => { 
     try {
         const weatherData = await getWeather(req.params.city);
         res.json(weatherData);

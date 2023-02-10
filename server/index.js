@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = 3000;
 
 //middleware
 const cors = require('cors');
 app.use(cors());
 
+//body parser
 app.listen(port);
 
 //default route
