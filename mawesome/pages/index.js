@@ -7,21 +7,19 @@ import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState({});
   const getWeather = async (city) => {
       // const response = await fetch(`https://mawesome-api.vercel.app/weather/london`);
       // const data = await response.json();
     const response = null
-    const data = null
-      fetch(`https://mawesome-api.vercel.app/weather/london`)
+    const data = {}
+      fetch(`https://mawesome-api.vercel.app/weather/${city}`)
       .then(response => response.json())
-      .then(data => console.log(data))
+        .then(data => { setWeather(data);  console.log(data);})
       .catch(error => console.error(error));
-    setWeather(data);
-    console.log(data);
   };
   useEffect(() => {
-    getWeather('London');
+    getWeather('Delhi');
   }, []);
 
   return (
@@ -35,13 +33,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            {weather && (
-              <>
-                <span>Weather in {weather.name}:</span>
-                <span>{weather.weather[0].description}</span>
-                <span>Temperature: {weather.main.temp}</span>
-              </>
-            )}
+            hi
           </p>
           <div>
             <a
@@ -61,6 +53,30 @@ export default function Home() {
             </a>
           </div>
         </div>
+
+        <p>
+          <form onSubmit={e => {
+            e.preventDefault();
+            getWeather(e.target.city.value);
+          }}>
+            <input type="text" name="city" />
+            <button type="submit">Get weather</button>
+          </form>
+
+          {
+            weather &&
+            <>
+              <p>Weather in {weather.name}</p>
+              <p>Temperature: {weather.main.temp}</p>
+              <p>Feels like: {weather.main.feels_like}</p>
+              <p>Humidity: {weather.main.humidity}</p>
+              <p>Pressure: {weather.main.pressure}</p>
+              <p>Wind speed: {weather.wind.speed}</p>
+              <p>Max Temp: {weather.main.temp_max}</p>
+              <p>Min Temp: {weather.main.temp_min}</p>
+            </>
+          }
+        </p>
 
         <div className={styles.center}>
           <Image
