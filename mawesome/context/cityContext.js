@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from 'react';
 export const CityContext = createContext();
 
 const CityContextProvider = (props) => {
-  const [currentCity, setCurrentCity] = useState('Delhi');
+  const [currentCity, setCurrentCity] = useState(null);
   const [pinnedCities, setPinnedCities] = useState([]);
 
   useEffect(() => {
@@ -14,16 +14,21 @@ const CityContextProvider = (props) => {
     }
   }, []);
 
+
   useEffect(() => {
-    localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
+    if (!(currentCity === null && pinnedCities.length === 0)) {
+      localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
+    }
   }, [currentCity, pinnedCities]);
 
   const updateCurrentCity = (city) => {
+    // localStorage.setItem('weatherApp', JSON.stringify({ currentCity:`${city}`, pinnedCities }));
     setCurrentCity(city);
   };
 
   const pinCity = (city) => {
     if (!pinnedCities.includes(city)) {
+      // localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities: { ...pinnedCities, city } }));
       setPinnedCities([...pinnedCities, city]);
     }
   };
@@ -40,4 +45,3 @@ const CityContextProvider = (props) => {
 };
 
 export default CityContextProvider;
-

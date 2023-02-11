@@ -1,3 +1,5 @@
+/* Home -> Main Container*/
+
 .mainContainer{
     display: flex;
     flex-direction: column;
@@ -10,11 +12,14 @@
     overflow-y: scroll;
 }
 
+/* Home -> Landing Screen */
+
 .landingContainer{
     width: min(95%, 1300px);
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .title{
@@ -24,4 +29,42 @@
     color: var(--color-primary);
     font-weight: 400;
     font-size: 1rem;
+}
+
+.weatherWidgetContainer{
+    width: auto;
+    padding: 20px;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.weatherWidgetLeft{
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+}
+
+.weatherWidgetLeft h2{
+    font-weight: 500;
+    font-size: 7em;
+}
+
+.weatherWidgetRight {
+    font-family: var(--font-primary);
+    color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.weatherWidgetRight div{
+    font-size: 2.5em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.weatherWidgetRight h3{
+    font-size: 1.5em;
+    font-weight: 300;
 }

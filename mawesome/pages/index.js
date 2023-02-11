@@ -3,18 +3,22 @@ import styles from '../styles/Home.module.css'
 import { useState, useEffect, useContext } from 'react';
 import { CityContext } from '@/context/cityContext';
 import Sidebar from '@/components/Sidebar';
+import Image from 'next/image';
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
   const { currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity } = useContext(CityContext);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`https://mawesome-api.vercel.app/weather/${currentCity}`);
-      const data = await res.json();
-      setWeather(data);
-    };
-    fetchData();
+    if (currentCity) {
+      const fetchData = async () => {
+        const res = await fetch(`https://mawesome-api.vercel.app/weather/${currentCity}`);
+        const data = await res.json();
+        setWeather(data);
+      };
+      fetchData();
+    }
+    
   }, [currentCity]);
 
   useEffect(() => {
@@ -44,6 +48,9 @@ export default function Home() {
           break;
       }
     }
+
+    else 
+      document.body.style.backgroundImage = "url('/bgs/otherbg.jpg')";
   }, [weather]);
 
   return (
@@ -54,23 +61,32 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icon.png" />
       </Head>
-      <main style={{display: 'flex'}}>
+      <main style={{ display: 'flex' }}>
         <div className={styles.mainContainer}>
           <div className={styles.landingContainer}>
-          <header>
-              <h1 className={styles.title}>mawesome</h1>
-              <div className={styles.weatherWidgetContainer}>
-                <div className={styles.weatherWidgetLeft}>
-                    {weather && weather.main.temp}
-                </div><div className={styles.weatherWidgetRight}>
-                  
-                </div>
+            <h1 className={styles.title}>
+              mawesome
+            </h1>
+            <div className={styles.weatherWidgetContainer}>
+              <div className={styles.weatherWidgetLeft}>
+                <h2>
+                  {weather && (weather.main.temp | 0)}&#176;C
+                </h2>
               </div>
-          </header>
+              <div className={styles.weatherWidgetRight}>
+                <div>
+                  {weather && weather.weather[0].main}
+                  {weather && (<img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} height='60px'alt="weather icon" />)}
+                </div>
+                <h3>
+                  {weather && weather.name}, {weather && weather.sys.country}
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
-        <Sidebar/>
+        <Sidebar />
       </main>
-      </>
+    </>
   )
 }

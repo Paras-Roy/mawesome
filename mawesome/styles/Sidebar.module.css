@@ -8,3 +8,53 @@
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
+.sidebarSearchContainer{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarSearchForm{
+    display: flex;
+    padding: 20px;
+    margin: 20px 10px;
+}
+
+.sidebarSearchForm input{
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--bg-glass-lighter);
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.sidebarSearchForm input::placeholder{
+    color: var(--color-secondary);
+}
+
+.sidebarSearchForm input:active, .sidebarSearchForm input:focus{
+    background-color: var(--bg-glass-lighter);
+    outline: none;
+}
+
+.sidebarSearchForm button{
+    padding: 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.sidebarSearchForm button:hover{
+    background-color: var(--bg-glass-lighter);
+    cursor: pointer;
+}
