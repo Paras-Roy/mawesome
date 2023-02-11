@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 import { useState, useEffect, useContext } from 'react';
 import { CityContext } from '@/context/cityContext';
+import Sidebar from '@/components/Sidebar';
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
@@ -52,17 +54,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icon.png" />
       </Head>
-      <main>
-        <p>{weather && weather.name}</p>
-        <p>{weather && weather.weather[0].main}</p>
-        <h1>Weather</h1>
-        <form onSubmit={(e) => {
-          e.preventDefault();
-          updateCurrentCity(e.target.city.value);
-        }}>
-          <input type="text" name="city" />
-          <button type="submit">Submit</button>
-        </form>
+      <main style={{display: 'flex'}}>
+        <div className={styles.mainContainer}>
+          <div className={styles.landingContainer}>
+          <header>
+              <h1 className={styles.title}>mawesome</h1>
+              <div className={styles.weatherWidgetContainer}>
+                <div className={styles.weatherWidgetLeft}>
+                    {weather && weather.main.temp}
+                </div><div className={styles.weatherWidgetRight}>
+                  
+                </div>
+              </div>
+          </header>
+          </div>
+        </div>
+        <Sidebar/>
       </main>
       </>
   )

@@ -1,0 +1,10 @@
+.sidebar{
+    background-color: var(--bg-glass-dark);
+    backdrop-filter: blur(20px);
+    flex: 3;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

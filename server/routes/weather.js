@@ -5,7 +5,8 @@ require('dotenv').config();
 
 const getWeather = async (city) => {
     try {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`);
+        const units = 'metric';
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${process.env.API_KEY}`);
         if (!response.ok) {
             throw new Error(`Failed to fetch weather information for ${city} with status code ${response.status}`);
         }
