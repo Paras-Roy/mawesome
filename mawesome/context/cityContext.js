@@ -27,13 +27,13 @@ const CityContextProvider = (props) => {
   };
 
   const pinCity = (city) => {
-    if (!pinnedCities.includes(city)) {
-      setPinnedCities([...pinnedCities, city]);
+    if (!pinnedCities.find(c => c.city === city)) {
+      setPinnedCities([...pinnedCities, { key: Date.now().valueOf(), city }]);
     }
   };
 
   const unpinCity = (city) => {
-    setPinnedCities(pinnedCities.filter((c) => c !== city));
+    setPinnedCities(pinnedCities.filter((c) => c.city !== city));
   };
 
   return (

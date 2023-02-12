@@ -14,7 +14,7 @@ export default function Sidebar(props) {
             fetch(`https://mawesome-api.vercel.app/weather/${searchCity}`)
                 .then(res => res.json())
                 .then(data => {
-                    updateCurrentCity(searchCity);
+                    updateCurrentCity(data.name);
                     props.setWeather(data);
                     setNotFound(false);
                 })
@@ -37,7 +37,7 @@ export default function Sidebar(props) {
                         }
 
                     }>
-                    <input type="text" name="city" placeholder="Search for a city"/>
+                    <input type="text" name="city" placeholder="Search for a city" />
                     <button type="submit">
                         Go
                     </button>
@@ -46,18 +46,19 @@ export default function Sidebar(props) {
                     <div className={styles.pinRibbon}>
                         <div className={styles.pinRibbonText}>Pinned Cities</div>
                         {
-                            currentCity && (!pinnedCities.includes(currentCity)) &&
+                            currentCity && (!pinnedCities.some(city => city.city === currentCity)) &&
                             <button onClick={() => pinCity(currentCity)}>Pin {currentCity}</button>
                         }
                     </div>
                 </div>
                 {
-                    pinnedCities.map((city, index) => {
+                    pinnedCities.map((cityObject) => {
                         return (
-                            <PinnedCityWidget city={city} key={index} />
-                        )
+                            <PinnedCityWidget city={cityObject.city} key={cityObject.key} />
+                        );
                     })
                 }
+
 
                 {
                     notFound &&
