@@ -2,11 +2,14 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { useState, useEffect, useContext } from 'react';
 import { CityContext } from '@/context/cityContext';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import Sidebar from '@/components/Sidebar';
+
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
   const { currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity } = useContext(CityContext);
+
 
   useEffect(() => {
     if (currentCity) {
@@ -17,7 +20,7 @@ export default function Home() {
       };
       fetchData();
     }
-    
+
   }, [currentCity]);
 
   useEffect(() => {
@@ -50,41 +53,68 @@ export default function Home() {
   }, [weather]);
 
   if (weather) return (
-    <>
+    <div style={{ height: '100%' }}>
       <Head>
         <title>mawesome</title>
         <meta name="description" content="Weather app created by Paras Roy" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icon.png" />
       </Head>
-      <main style={{ display: 'flex' }}>
-        <div className={styles.mainContainer}>
-          <div className={styles.landingContainer}>
-            <h1 className={styles.title}>
-              mawesome
-            </h1>
-            <div className={styles.weatherWidgetContainer}>
-              <div className={styles.weatherWidgetLeft}>
-                <h2>
-                  {weather && (weather.main.temp | 0)}&#176;C
-                </h2>
+      <div className={styles.mainContainer}>
+        <div className={styles.landingContainer}>
+          <div className={styles.title}>
+            <span>mawesome</span>
+            <button className={styles.searchIcon} onClick={() => {
+                //translate sidebar in from Right
+              document.getElementById('sidebar').style.transform = 'translateX(0)';
+            }}>
+              <ManageSearchIcon fontSize="large" />
+            </button>
+          </div>
+          <div className={styles.weatherWidgetContainer}>
+            <div className={styles.weatherWidgetLeft}>
+              <h2>
+                {weather && (weather.main.temp | 0)}&#176;C
+              </h2>
+            </div>
+            <div className={styles.weatherWidgetRight}>
+              <div>
+                {weather && weather.weather[0].main}
+                {weather && (<img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} height='60px' alt="weather icon" />)}
               </div>
-              <div className={styles.weatherWidgetRight}>
-                <div>
-                  {weather && weather.weather[0].main}
-                  {weather && (<img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} height='60px'alt="weather icon" />)}
-                </div>
-                <h3>
-                  {weather && weather.name}, {weather && weather.sys.country}
-                </h3>
-              </div>
+              <h3>
+                {weather && weather.name}, {weather && weather.sys.country}
+              </h3>
             </div>
           </div>
-          <h1>Hi baby</h1>
         </div>
-        <Sidebar setWeather={setWeather} />
-      </main>
-    </>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+        <h1>Hi baby</h1>
+      </div>
+      <div className={styles.sidebar} id="sidebar">
+      <Sidebar className={styles.sidebar} setWeather={setWeather} />
+      </div>
+    </div>
   )
   else return (
     <>
@@ -109,7 +139,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Sidebar />
       </main>
     </>
   )

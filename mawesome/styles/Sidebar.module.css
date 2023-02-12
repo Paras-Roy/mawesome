@@ -1,34 +1,35 @@
-.sidebar{
-    position: relative;
+.sidebarr {
     background-color: var(--bg-glass-dark);
     backdrop-filter: blur(20px);
     /* flex: 3; */
-    height: 100vh;
-    width: min(95%, 420px);
+    height: 100%;
+    width: min(100%, 420px);
     position: fixed;
     top: 0;
     right: 0;
-    overflow-x: hidden;
+    overflow-x: visible;
     overflow-y: scroll;
     gap: 10px;
 }
 
 /* Search box */
 
-.sidebarSearchContainer{
+.sidebarSearchContainer {
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.sidebarSearchForm{
+.sidebarSearchForm {
     display: flex;
-    padding: 20px;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 10px 5px;
     margin: 20px 10px;
     margin-bottom: 0;
 }
 
-.sidebarSearchForm input{
+.sidebarSearchForm input {
     flex: 1;
     padding: 10px;
     border: none;
@@ -40,17 +41,21 @@
     font-size: 1rem;
 }
 
-.sidebarSearchForm input::placeholder{
+.sidebarSearchForm input::placeholder {
     color: var(--color-secondary);
 }
 
-.sidebarSearchForm input:active, .sidebarSearchForm input:focus{
+.sidebarSearchForm input:active,
+.sidebarSearchForm input:focus {
     outline: none;
 }
 
-.sidebarSearchForm button{
+.closeIcon{
+    display: none !important;
+}
+
+.sidebarSearchForm button {
     padding: 5px 15px;
-    margin-left: 10px;
     border: none;
     border-radius: 10px;
     background-color: transparent;
@@ -58,14 +63,16 @@
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
 }
 
-.sidebarSearchForm button:hover{
+.sidebarSearchForm button:hover {
     background-color: var(--bg-glass-lighter);
     cursor: pointer;
 }
 
-.notFound{
+.notFound {
     margin: 0 20px;
     padding: 5px 10px;
     font-family: var(--font-primary);
@@ -81,7 +88,7 @@
 
 /* Pin Container */
 
-.pinContainer{
+.pinContainer {
     margin: 0 20px;
     margin-bottom: 10px;
     padding: 0 5px;
@@ -90,16 +97,16 @@
     border-bottom: 1px solid var(--color-secondary);
 }
 
-.pinRibbon{
+.pinRibbon {
     display: flex;
 }
 
-.pinRibbonText{
+.pinRibbonText {
     flex: 1;
     display: flex;
     align-items: center;
-    padding:5px;
-    margin:10px 5px;
+    padding: 5px;
+    margin: 10px 5px;
     border: none;
     border-radius: 10px;
     color: var(--color-primary);
@@ -108,7 +115,7 @@
     font-size: 1rem;
 }
 
-.pinRibbon button{
+.pinRibbon button {
     padding: 5px 10px;
     margin: 10px 5px;
     width: auto;
@@ -122,9 +129,23 @@
     font-size: 1rem;
 }
 
-.pinRibbon  button:hover{
+.pinRibbon button:hover {
     background-color: var(--bg-glass-lighter);
     cursor: pointer;
 }
 
-/* Pinned Cities WIdget Container */
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+
+    .active{
+        transform: translate(0);
+    }
+
+    .sidebarSearchForm input {
+        width: 75%;
+    }
+
+    .closeIcon{
+        display: block !important;
+    }
+}

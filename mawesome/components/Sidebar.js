@@ -1,7 +1,7 @@
 import styles from '../styles/Sidebar.module.css'
 import { useState, useEffect, useContext } from 'react'
 import { CityContext } from '@/context/cityContext';
-import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 import PinnedCityWidget from './PinWidget';
 
 export default function Sidebar(props) {
@@ -26,7 +26,7 @@ export default function Sidebar(props) {
                 })
         }
     }, [searchCity])
-
+    
     return (
         <div className={styles.sidebar}>
             <div className={styles.sidebarSearchContainer}>
@@ -36,14 +36,18 @@ export default function Sidebar(props) {
                         (e) => {
                             e.preventDefault()
                             setSearchCity(e.target.city.value)
+                            e.target.city.value = ''
                         }
 
                     }>
+                    <button className={styles.closeIcon}
+                        onClick={() => document.getElementById('sidebar').style.transform = 'translateX(100%)'}
+                    ><CloseIcon /></button>
                     <input type="text" name="city" placeholder="Search for a city" />
                     <button type="submit">
                         Go
                     </button>
-                    </form>
+                </form>
                 {
                     notFound &&
                     <h1 className={styles.notFound}>City not found</h1>
@@ -64,7 +68,7 @@ export default function Sidebar(props) {
                         );
                     })
                 }
-                
+
 
             </div>
         </div>

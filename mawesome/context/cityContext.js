@@ -37,7 +37,7 @@ const CityContextProvider = (props) => {
   };
 
   return (
-    <CityContext.Provider value={{ currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity }}>
+    <CityContext.Provider value={{ currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity}}>
       {props.children}
     </CityContext.Provider>
   );
