@@ -1,10 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useRef } from 'react';
 
 export const CityContext = createContext();
 
 const CityContextProvider = (props) => {
   const [currentCity, setCurrentCity] = useState(null);
   const [pinnedCities, setPinnedCities] = useState([]);
+  const mounted = useRef(false);
 
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem('weatherApp'));
@@ -16,10 +17,24 @@ const CityContextProvider = (props) => {
 
 
   useEffect(() => {
-    if (!(currentCity === null && pinnedCities.length === 0)) {
+    if (mounted.current) {
       localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
+    } else {
+      mounted.current = true;
+      if(!currentCity) {
+        setCurrentCity('Delhi');
+      }
     }
   }, [currentCity, pinnedCities]);
+
+  // useEffect(() => {
+  //   if (!(currentCity === null && pinnedCities.length === 0)) {
+  //     localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
+  //   }
+  //   else if (!currentCity) {
+  //     setCurrentCity('Delhi');
+  //   }
+  // }, [currentCity, pinnedCities]);
 
   const updateCurrentCity = (city) => {
     // localStorage.setItem('weatherApp', JSON.stringify({ currentCity:`${city}`, pinnedCities }));

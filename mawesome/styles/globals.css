@@ -7,7 +7,7 @@
 
   /* color stuff */
   --color-primary: rgba(255, 255, 255, 0.9);
-  --color-secondary: rgba(255, 255, 255, 0.5);
+  --color-secondary: rgba(255, 255, 255, 0.6);
 
 
   /* background stuff */
@@ -33,6 +33,7 @@ body {
 }
 
 body {
+  background-color: #373737;
   background-size: cover;
   background-attachment: fixed;
   background-position: bottom;

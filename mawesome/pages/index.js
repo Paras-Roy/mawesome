@@ -48,12 +48,9 @@ export default function Home() {
           break;
       }
     }
-
-    else 
-      document.body.style.backgroundImage = "url('/bgs/otherbg.jpg')";
   }, [weather]);
 
-  return (
+  if (weather) return (
     <>
       <Head>
         <title>mawesome</title>
@@ -81,6 +78,33 @@ export default function Home() {
                 <h3>
                   {weather && weather.name}, {weather && weather.sys.country}
                 </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Sidebar setWeather={setWeather} />
+      </main>
+    </>
+  )
+  else return (
+    <>
+      <Head>
+        <title>mawesome</title>
+        <meta name="description" content="Weather app created by Paras Roy" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/icon.png" />
+      </Head>
+      <main style={{ display: 'flex' }}>
+        <div className={styles.mainContainer}>
+          <div className={styles.landingContainer}>
+            <h1 className={styles.title}>
+              mawesome
+            </h1>
+            <div className={styles.weatherWidgetContainer}>
+              <div className={styles.weatherWidgetRight}>
+                <div>
+                  Loading weather...
+                </div>
               </div>
             </div>
           </div>
