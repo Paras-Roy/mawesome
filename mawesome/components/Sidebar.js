@@ -1,7 +1,7 @@
 import styles from '../styles/Sidebar.module.css'
 import { useState, useEffect, useContext } from 'react'
 import { CityContext } from '@/context/cityContext';
-import CloseIcon from '@mui/icons-material/Close';
+import LogoutIcon from '@mui/icons-material/Logout';
 import PinnedCityWidget from './PinWidget';
 
 export default function Sidebar(props) {
@@ -42,7 +42,7 @@ export default function Sidebar(props) {
                     }>
                     <div className={styles.closeIcon}
                         onClick={() => document.getElementById('sidebar').style.transform = 'translateX(100%)'}
-                    ><CloseIcon /></div>
+                    ><LogoutIcon fontSize='large'/></div>
                     <input type="text" name="city" placeholder="Search for a city" />
                     <button type="submit">
                         Go

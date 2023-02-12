@@ -54,7 +54,7 @@
     display: none !important;
 }
 
-.sidebarSearchForm button {
+.sidebarSearchForm button, .closeIcon{
     padding: 5px 15px;
     border: none;
     border-radius: 10px;
@@ -67,7 +67,7 @@
     align-items: center;
 }
 
-.sidebarSearchForm button:hover {
+.sidebarSearchForm button:hover, .closeIcon:hover {
     background-color: var(--bg-glass-lighter);
     cursor: pointer;
 }
@@ -141,11 +141,16 @@
         transform: translate(0);
     }
 
+    .sidebarSearchForm{
+        margin-inline: 0;
+    }
+
     .sidebarSearchForm input {
         width: 75%;
     }
 
-    .closeIcon{
-        display: block !important;
+    .closeIcon{        
+    display: flex !important;
+    align-items: center;
     }
 }
