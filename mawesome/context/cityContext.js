@@ -21,9 +21,9 @@ const CityContextProvider = (props) => {
       localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
     } else {
       mounted.current = true;
-      if(!currentCity) {
+      if(currentCity === null && pinnedCities.length === 0) {
         setCurrentCity('Delhi');
-      }
+      }      
     }
   }, [currentCity, pinnedCities]);
 
