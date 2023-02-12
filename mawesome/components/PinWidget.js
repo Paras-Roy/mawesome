@@ -17,7 +17,7 @@ export default function PinnedCityWidget({ city }) {
         <>
             {
                 weatherData &&
-                <div className={styles.pinWidget}>
+                <div className={styles.pinWidget} onClick={() => updateCurrentCity(city)}>
                     <div className={styles.pinWidgetRibbon}>
                         <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="weather icon" />
                         <span>{weatherData.name}</span>
@@ -25,7 +25,7 @@ export default function PinnedCityWidget({ city }) {
                             onClick={() => unpinCity(city)}
                         ><ClearIcon fontSize="small" /></button>
                     </div>
-                    <div className={styles.pinWidgetWeather} onClick={() => updateCurrentCity(city)}>
+                    <div className={styles.pinWidgetWeather}>
                         <div className={styles.pinWidgetLeft}>
                             <div className={styles.pinWidgetTemp}>
                                 {Math.round(weatherData.main.temp)}°C
