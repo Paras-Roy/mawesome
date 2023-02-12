@@ -11,6 +11,7 @@
 
 
   /* background stuff */
+  --bg-glass-lightest: rgba(255, 255, 255, 0.2);
   --bg-glass-lighter: rgba(255, 255, 255, 0.05);
   --bg-glass-light: rgba(0, 0,0, 0.1);
   --bg-glass-dark: rgba(0, 0,0, 0.2);

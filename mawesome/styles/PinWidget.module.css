@@ -10,6 +10,11 @@
     font-family: var(--font-primary);
 }
 
+.pinWidget:hover{
+    background-color: var(--bg-glass-lightest);
+    cursor: pointer;
+}
+
 .pinWidgetRibbon{
     
     display: flex;

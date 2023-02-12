@@ -10,7 +10,6 @@
     right: 0;
     overflow-x: hidden;
     overflow-y: scroll;
-    z-index: 1;
     gap: 10px;
 }
 
