@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useRef } from 'react';
+import { createContext, useState, useEffect, useRef } from 'react';
 
 export const CityContext = createContext();
 
@@ -8,42 +8,26 @@ const CityContextProvider = (props) => {
   const mounted = useRef(false);
 
   useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem('weatherApp'));
-    if (localData) {
-      setCurrentCity(localData.currentCity);
-      setPinnedCities(localData.pinnedCities);
-    }
-  }, []);
-
-
-  useEffect(() => {
-    if (mounted.current) {
-      localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
-    } else {
-      mounted.current = true;
-      if(currentCity === null && pinnedCities.length === 0) {
+    if (!mounted.current) {
+      const localData = JSON.parse(localStorage.getItem('weatherApp'));
+      if (localData) {
+        setCurrentCity(localData.currentCity);
+        setPinnedCities(localData.pinnedCities);
+      } else {
         setCurrentCity('Delhi');
-      }      
+      }
+      mounted.current = true;
+    } else {
+      localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
     }
   }, [currentCity, pinnedCities]);
 
-  // useEffect(() => {
-  //   if (!(currentCity === null && pinnedCities.length === 0)) {
-  //     localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities }));
-  //   }
-  //   else if (!currentCity) {
-  //     setCurrentCity('Delhi');
-  //   }
-  // }, [currentCity, pinnedCities]);
-
   const updateCurrentCity = (city) => {
-    // localStorage.setItem('weatherApp', JSON.stringify({ currentCity:`${city}`, pinnedCities }));
     setCurrentCity(city);
   };
 
   const pinCity = (city) => {
     if (!pinnedCities.includes(city)) {
-      // localStorage.setItem('weatherApp', JSON.stringify({ currentCity, pinnedCities: { ...pinnedCities, city } }));
       setPinnedCities([...pinnedCities, city]);
     }
   };
