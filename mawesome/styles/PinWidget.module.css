@@ -1,0 +1,81 @@
+.pinWidget {
+    background-color: var(--bg-glass-lighter);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 10px 20px;
+    padding: 10px;
+
+    font-family: var(--font-primary);
+}
+
+.pinWidgetRibbon{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-primary);
+}
+
+.pinWidgetRibbon img{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.pinWidgetRibbon span{
+    font-weight: 400;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.pinWidgetRibbon button{
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.pinWidgetRibbon button:hover{
+    background-color: var(--bg-glass-light);
+    cursor: pointer;
+}
+
+.pinWidgetWeather{
+    display: flex;
+    margin: 5px;
+    padding: 0 5px;
+    justify-content: space-between;
+    color: var(--color-secondary);
+    font-weight: 300;
+}
+
+.pinwidgetLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pinWidgetTemp{
+    display: flex;
+    color: var(--color-primary);
+    font-weight: normal;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.pinWidgetRight{
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}

@@ -5,10 +5,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import PinnedCityWidget from './PinWidget';
 
 export default function Sidebar(props) {
+    //state for search city
     const [searchCity, setSearchCity] = useState(null);
     const [notFound, setNotFound] = useState(false);
     const { currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity } = useContext(CityContext);
 
+    //get weather data of search city
     useEffect(() => {
         if (searchCity) {
             fetch(`https://mawesome-api.vercel.app/weather/${searchCity}`)
@@ -41,7 +43,11 @@ export default function Sidebar(props) {
                     <button type="submit">
                         Go
                     </button>
-                </form>
+                    </form>
+                {
+                    notFound &&
+                    <h1 className={styles.notFound}>City not found</h1>
+                }
                 <div className={styles.pinContainer}>
                     <div className={styles.pinRibbon}>
                         <div className={styles.pinRibbonText}>Pinned Cities</div>
@@ -58,12 +64,7 @@ export default function Sidebar(props) {
                         );
                     })
                 }
-
-
-                {
-                    notFound &&
-                    <h1 className={styles.notFound}>City not found</h1>
-                }
+                
 
             </div>
         </div>

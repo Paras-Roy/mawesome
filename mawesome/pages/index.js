@@ -3,7 +3,6 @@ import styles from '../styles/Home.module.css'
 import { useState, useEffect, useContext } from 'react';
 import { CityContext } from '@/context/cityContext';
 import Sidebar from '@/components/Sidebar';
-import Image from 'next/image';
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
@@ -81,6 +80,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <h1>Hi baby</h1>
         </div>
         <Sidebar setWeather={setWeather} />
       </main>

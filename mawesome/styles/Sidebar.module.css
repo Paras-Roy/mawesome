@@ -1,14 +1,20 @@
 .sidebar{
+    position: relative;
     background-color: var(--bg-glass-dark);
     backdrop-filter: blur(20px);
     /* flex: 3; */
     height: 100vh;
     width: min(95%, 420px);
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
     overflow-x: hidden;
     overflow-y: scroll;
+    z-index: 1;
+    gap: 10px;
 }
+
+/* Search box */
 
 .sidebarSearchContainer{
     padding: 10px;
@@ -44,7 +50,7 @@
 }
 
 .sidebarSearchForm button{
-    padding: 10px;
+    padding: 5px 15px;
     margin-left: 10px;
     border: none;
     border-radius: 10px;
@@ -60,8 +66,25 @@
     cursor: pointer;
 }
 
+.notFound{
+    margin: 0 20px;
+    padding: 5px 10px;
+    font-family: var(--font-primary);
+    background-color: rgba(250, 235, 204, 0.01);
+    border: 1px solid;
+    border-color: rgb(250, 235, 204);
+    border-radius: 10px;
+    text-align: center;
+    color: #faebcc;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* Pin Container */
+
 .pinContainer{
     margin: 0 20px;
+    margin-bottom: 10px;
     padding: 0 5px;
     display: flex;
     flex-direction: column;
@@ -104,3 +127,5 @@
     background-color: var(--bg-glass-lighter);
     cursor: pointer;
 }
+
+/* Pinned Cities WIdget Container */
