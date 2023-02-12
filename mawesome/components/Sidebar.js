@@ -40,9 +40,9 @@ export default function Sidebar(props) {
                         }
 
                     }>
-                    <button className={styles.closeIcon}
+                    <div className={styles.closeIcon}
                         onClick={() => document.getElementById('sidebar').style.transform = 'translateX(100%)'}
-                    ><CloseIcon /></button>
+                    ><CloseIcon /></div>
                     <input type="text" name="city" placeholder="Search for a city" />
                     <button type="submit">
                         Go
