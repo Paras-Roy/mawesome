@@ -26,7 +26,7 @@ export default function Sidebar(props) {
                 })
         }
     }, [searchCity])
-    
+
     return (
         <div className={styles.sidebar}>
             <div className={styles.sidebarSearchContainer}>
@@ -42,7 +42,7 @@ export default function Sidebar(props) {
                     }>
                     <div className={styles.closeIcon}
                         onClick={() => document.getElementById('sidebar').style.transform = 'translateX(100%)'}
-                    ><LogoutIcon fontSize='large'/></div>
+                    ><LogoutIcon fontSize='large' /></div>
                     <input type="text" name="city" placeholder="Search for a city" />
                     <button type="submit">
                         Go

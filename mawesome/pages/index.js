@@ -65,7 +65,7 @@ export default function Home() {
           <div className={styles.title}>
             <span>mawesome</span>
             <button className={styles.searchIcon} onClick={() => {
-                //translate sidebar in from Right
+              //translate sidebar in from Right
               document.getElementById('sidebar').style.transform = 'translateX(0)';
             }}>
               <ManageSearchIcon fontSize="large" />
@@ -112,7 +112,7 @@ export default function Home() {
         <h1>Hi baby</h1>
       </div>
       <div className={styles.sidebar} id="sidebar">
-      <Sidebar className={styles.sidebar} setWeather={setWeather} />
+        <Sidebar className={styles.sidebar} setWeather={setWeather} />
       </div>
     </div>
   )
