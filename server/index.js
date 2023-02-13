@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 //middleware
 const cors = require('cors');
@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 
 //import routes
 app.use('/weather', require('./routes/weather'));
+app.use('/forecast', require('./routes/forecast'));
 
 //export app
 module.exports = app;
