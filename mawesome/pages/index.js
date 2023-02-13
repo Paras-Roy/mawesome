@@ -1,14 +1,15 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import { useState, useEffect, useContext } from 'react';
-import { CityContext } from '@/context/cityContext';
+import { CityContext } from '../context/cityContext';
+import styles from '../styles/Home.module.css'
+import Head from 'next/head'
+import Sidebar from '../components/Sidebar';
+import Dashboard from '../components/Dashboard';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-import Sidebar from '@/components/Sidebar';
 
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
-  const { currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity } = useContext(CityContext);
+  const { currentCity} = useContext(CityContext);
 
 
   useEffect(() => {
@@ -88,28 +89,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
-        <h1>Hi baby</h1>
+        <Dashboard/>
       </div>
       <div className={styles.sidebar} id="sidebar">
         <Sidebar className={styles.sidebar} setWeather={setWeather} />

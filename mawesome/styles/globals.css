@@ -6,15 +6,16 @@
   --font-styled: 'Freehand', cursive;
 
   /* color stuff */
-  --color-primary: rgba(255, 255, 255, 0.9);
+  --color-primary: rgba(255, 255, 255, 0.95);
   --color-secondary: rgba(255, 255, 255, 0.6);
 
 
   /* background stuff */
-  --bg-glass-lightest: rgba(255, 255, 255, 0.2);
-  --bg-glass-lighter: rgba(255, 255, 255, 0.05);
-  --bg-glass-light: rgba(0, 0, 0, 0.1);
-  --bg-glass-dark: rgba(0, 0, 0, 0.2);
+  --bg-glass-widget: rgba(255, 240, 228, 0.677);
+  --bg-glass-lightest: rgba(255, 255, 255, 0.3);
+  --bg-glass-lighter: rgba(255, 255, 255, 0.1);
+  --bg-glass-light: rgba(0, 0, 0, 0.2);
+  --bg-glass-dark: rgba(0, 0, 0, 0.3);
 }
 
 * {

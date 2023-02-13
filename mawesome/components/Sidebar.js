@@ -1,14 +1,14 @@
-import styles from '../styles/Sidebar.module.css'
 import { useState, useEffect, useContext } from 'react'
-import { CityContext } from '@/context/cityContext';
-import LogoutIcon from '@mui/icons-material/Logout';
+import { CityContext } from '../context/cityContext';
+import styles from '../styles/Sidebar.module.css'
 import PinnedCityWidget from './PinWidget';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Sidebar(props) {
     //state for search city
     const [searchCity, setSearchCity] = useState(null);
     const [notFound, setNotFound] = useState(false);
-    const { currentCity, pinnedCities, updateCurrentCity, pinCity, unpinCity } = useContext(CityContext);
+    const { currentCity, pinnedCities, updateCurrentCity, pinCity} = useContext(CityContext);
 
     //get weather data of search city
     useEffect(() => {

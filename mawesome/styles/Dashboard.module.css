@@ -1,0 +1,77 @@
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+.tabsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.tabsRibbon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.tabsRibbon span {
+    flex: 1;
+    text-align: center;
+    border: none;
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 3rem;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.widgetRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.widgetRow>div {
+    display: flex;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.widgetDataTitle {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    font-weight: 300;
+}
+
+.widgetDataValue{
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
