@@ -12,6 +12,9 @@
 .tabsContainer {
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-glass-widget);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -20,6 +23,7 @@
 }
 
 .tabsRibbon {
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -34,7 +38,7 @@
     flex: 1;
     text-align: center;
     border: none;
-    color: var(--color-primary);
+    color: black;
     font-family: var(--font-primary);
     font-weight: 600;
     font-size: 3rem;
@@ -47,31 +51,62 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
     padding: 20px;
     margin: 20px;
     box-sizing: border-box;
 }
 
+
 .widgetRow>div {
     display: flex;
     padding: 20px 40px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 0.5px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(255, 255, 255, 0.35);
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .widgetDataTitle {
     font-size: 1.5rem;
-    color: var(--color-secondary);
-    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
 }
 
 .widgetDataValue{
     font-size: 2rem;
-    color: var(--color-primary);
-    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .dashboardContainer{
+        padding: 0;
+    }
+    .tabsContainer {
+        margin: 0;
+    }
+
+    .tabsRibbon span{
+        font-size: 2rem;
+        justify-content: center;
+        margin-right: 15px;
+    }
+    .widgetRow{
+        padding: 10px;
+        margin: 0px;
+    }
+    .widgetRow>div{
+        flex: 1;
+        padding: 10px 20px;
+        margin: 10px;
+    }
+    .widgetDataTitle{
+        font-size: 1rem;
+    }
+    .widgetDataValue{
+        font-size: 1.5rem;
+    }
+
 }
