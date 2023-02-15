@@ -1,0 +1,15 @@
+.footer{
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin: 20px;
+    padding:10px;
+    text-align: center;
+    font-family: var(--font-primary);
+    border-radius: 10px;
+    font-weight: 500;
+}
+.link{
+    background-color: var(--bg-glass-light);
+    padding: 0px 10px;
+    font-weight: 600;
+}

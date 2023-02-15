@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import Sidebar from '../components/Sidebar';
 import Dashboard from '../components/Dashboard';
+import Footer from '../components/Footer';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 
 
@@ -89,7 +90,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Dashboard/>
+        <Dashboard />
+        <Footer/>
       </div>
       <div className={styles.sidebar} id="sidebar">
         <Sidebar className={styles.sidebar} setWeather={setWeather} />
