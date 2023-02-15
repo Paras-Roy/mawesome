@@ -57,7 +57,7 @@
 }
 
 
-.widgetRow>div {
+.widget {
     display: flex;
     padding: 20px 40px;
     background: rgba(255, 255, 255, 0.35);
@@ -80,6 +80,51 @@
     font-weight: 600;
 }
 
+.forecastContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.forecastWidget{
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+}
+
+.forecastWidgetDate{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.35);
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+}
+.forecastWidgetData{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    justify-content: flex-end;
+}
+
+.forecastWidgetCell{
+    display: flex;
+    margin: 0 10px;
+    padding: 0 10px;
+}
+
+
+
 @media (max-width: 768px) {
     .dashboardContainer{
         padding: 0;
@@ -99,7 +144,7 @@
     }
     .widgetRow>div{
         flex: 1;
-        padding: 10px 20px;
+        padding: 10px 10px;
         margin: 10px;
     }
     .widgetDataTitle{
@@ -108,5 +153,31 @@
     .widgetDataValue{
         font-size: 1.5rem;
     }
-
+    .forecastContainer{
+        padding: 0px !important;
+        margin: 0 !important;
+    }
+    .forecastWidget{
+        gap: 0px;
+        flex-direction: column;
+    }
+    .forecastWidgetDate{
+        font-size: 1rem;
+    }
+    .forecastWidgetData{
+        justify-content: center;
+        align-items: space-between;
+        padding: 0;
+        gap: 0;
+    }
+    .forecastWidgetCell:nth-child(4)
+    {
+        display: none;
+    }
+    .forecastWidgetCell{
+        flex-direction: column;
+        flex: 1;
+        text-align: center;
+        margin: 0;
+    }
 }

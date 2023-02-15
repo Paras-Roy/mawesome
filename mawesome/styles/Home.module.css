@@ -21,6 +21,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 30px;
+    margin-bottom: 50px;
 }
 
 .title {
@@ -37,6 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 99;
 }
 
 .title span {

@@ -31,13 +31,13 @@ export default function Dashboard() {
             const hours = date.getHours();
             const minutes = date.getMinutes();
             return `${hours}:${minutes}`;
-        }).slice(0, 8),
+        }).slice(0, 9),
         datasets: [
             {
                 label: 'Temperature',
                 data: weatherData && weatherData.list.map((item) => {
                     return item.main.temp;
-                }).slice(0, 8),
+                }).slice(0, 9),
                 backgroundColor: 'transparent',
                 borderColor: '#ff0000',
                 fill: true,
@@ -50,7 +50,7 @@ export default function Dashboard() {
             },
         ]
     };
-    
+
     const options = {
         responsive: true,
         plugins: {
@@ -75,7 +75,7 @@ export default function Dashboard() {
             }
         }
     }
-    
+
 
 
     useEffect(() => {
@@ -86,13 +86,13 @@ export default function Dashboard() {
             })
     }
         , [currentCity])
-    
-    
+
+
 
     const handleTabChange = (tab) => {
         setSelectedTab(tab);
     };
-    if(weatherData)
+    if (weatherData)
         return (
             <div className={styles.dashboardContainer}>
                 <div className={styles.tabsContainer}>
@@ -135,17 +135,113 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div className={styles.tabsRibbon}>
-                        <span>Temperature</span>
+                        <span>Temperature &#40;°C&#41;</span>
                     </div>
                     <div className={styles.widgetRow} id="bar">
-                        {/* Add bar chart with echarts to display first 8 entries of forecast data = 24 hours */}
-                        <Line data = {dayData} options = {options}></Line>
+                        {/* Add line chart with echarts to display first 8 entries of forecast data = 24 hours */}
+                        <Line data={dayData} options={options}></Line>
                     </div>
                     <div className={styles.tabsRibbon}>
                         <span>5 Day Forecast</span>
                     </div>
                     <div className={styles.widgetRow}>
-
+                        <div className={styles.forecastContainer}>
+                            <div className={styles.forecastWidget}>
+                                <div className={styles.forecastWidgetDate}>
+                                    {weatherData && weatherData.list[0].dt_txt.split(' ')[0]}
+                                </div>
+                                <div className={styles.forecastWidgetData}>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Cast: &nbsp; <span> {weatherData && weatherData.list[0].weather[0].main}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Temp: &nbsp;<span> {weatherData && weatherData.list[0].main.temp}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Humidity: &nbsp;<span> {weatherData && weatherData.list[0].main.humidity}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        <img src={`http://openweathermap.org/img/w/${weatherData && weatherData.list[0].weather[0].icon}.png`} alt="weather icon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.forecastWidget}>
+                                <div className={styles.forecastWidgetDate}>
+                                    {weatherData && weatherData.list[8].dt_txt.split(' ')[0]}
+                                </div>
+                                <div className={styles.forecastWidgetData}>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Cast: &nbsp;<span> {weatherData && weatherData.list[8].weather[0].main}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Temp: &nbsp;<span> {weatherData && weatherData.list[8].main.temp}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Humidity:&nbsp; <span> {weatherData && weatherData.list[8].main.humidity}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        <img src={`http://openweathermap.org/img/w/${weatherData && weatherData.list[8].weather[0].icon}.png`} alt="weather icon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.forecastWidget}>
+                                <div className={styles.forecastWidgetDate}>
+                                    {weatherData && weatherData.list[16].dt_txt.split(' ')[0]}
+                                </div>
+                                <div className={styles.forecastWidgetData}>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Cast:&nbsp; <span> {weatherData && weatherData.list[16].weather[0].main}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Temp:&nbsp; <span> {weatherData && weatherData.list[16].main.temp}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Humidity: &nbsp;<span> {weatherData && weatherData.list[16].main.humidity}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        <img src={`http://openweathermap.org/img/w/${weatherData && weatherData.list[16].weather[0].icon}.png`} alt="weather icon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.forecastWidget}>
+                                <div className={styles.forecastWidgetDate}>
+                                    {weatherData && weatherData.list[24].dt_txt.split(' ')[0]}
+                                </div>
+                                <div className={styles.forecastWidgetData}>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Cast:&nbsp; <span> {weatherData && weatherData.list[24].weather[0].main}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Temp: &nbsp;<span> {weatherData && weatherData.list[24].main.temp}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Humidity: &nbsp;<span> {weatherData && weatherData.list[24].main.humidity}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        <img src={`http://openweathermap.org/img/w/${weatherData && weatherData.list[24].weather[0].icon}.png`} alt="weather icon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.forecastWidget}>
+                                <div className={styles.forecastWidgetDate}>
+                                    {weatherData && weatherData.list[32].dt_txt.split(' ')[0]}
+                                </div>
+                                <div className={styles.forecastWidgetData}>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Cast: &nbsp;<span> {weatherData && weatherData.list[32].weather[0].main}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Temp: &nbsp;<span> {weatherData && weatherData.list[32].main.temp}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        Humidity: &nbsp;<span> {weatherData && weatherData.list[32].main.humidity}</span>
+                                    </div>
+                                    <div className={styles.forecastWidgetCell}>
+                                        <img src={`http://openweathermap.org/img/w/${weatherData && weatherData.list[32].weather[0].icon}.png`} alt="weather icon" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
