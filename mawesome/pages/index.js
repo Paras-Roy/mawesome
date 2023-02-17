@@ -14,14 +14,10 @@ export default function Home() {
   const [weather, setWeather] = useState(null);
   const { currentCity } = useContext(CityContext);
   
-  const myRef = useRef(null);
+  const dashboardRef = useRef(null);
 
   const handleScroll = () => {
-    window.scrollBy({
-      top: '100vh',
-      left: 0,
-      behavior: 'smooth'
-    });
+    dashboardRef.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   useEffect(() => {
@@ -74,7 +70,7 @@ export default function Home() {
         <link rel="icon" href="/icon.png" />
       </Head>
       <div className={styles.mainContainer}>
-        <div ref={myRef} className={styles.landingContainer}>
+        <div className={styles.landingContainer}>
           <div className={styles.title}>
             <span>mawesome</span>
             <button className={styles.searchIcon} onClick={() => {
@@ -99,7 +95,7 @@ export default function Home() {
                 {weather && weather.name}, {weather && weather.sys.country}
               </h3>
             </div>
-            <div className={styles.goToDashboard} onClick={ handleScroll }>
+            <div ref={dashboardRef} className={styles.goToDashboard} onClick={ handleScroll }>
               Go To DashBoard <KeyboardArrowDownIcon fontSize='large'/>
             </div>
           </div>

@@ -17,7 +17,7 @@ ChartJS.register(
     CategoryScale
 );
 
-export default function Dashboard() {
+export default function Dashboard(props) {
 
     const { currentCity } = useContext(CityContext);
     const [weatherData, setWeatherData] = useState(null);
@@ -54,7 +54,6 @@ export default function Dashboard() {
     const options = {
         responsive: true,
         plugins: {
-            //show legend only if the screen size is greater than 768px
             scales: {
                 x: {
                     grid: {
@@ -95,7 +94,7 @@ export default function Dashboard() {
     if (weatherData)
         return (
             <div className={styles.dashboardContainer}>
-                <div className={styles.tabsContainer}>
+                <div ref={props.dashboardRef}  className={styles.tabsContainer}>
                     <div className={styles.tabsRibbon}>
                         <span>Today</span>
                     </div>
