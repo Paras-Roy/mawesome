@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 //import routes
 app.use('/weather', require('./routes/weather'));
 app.use('/forecast', require('./routes/forecast'));
+app.use('/citylist', require('./routes/citylist'));
 
 //export app
 module.exports = app;
