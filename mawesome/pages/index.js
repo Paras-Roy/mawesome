@@ -113,6 +113,11 @@ export default function Home() {
               mawesome
             </h1>
             <div className={styles.weatherWidgetContainer}>
+            <div className={styles.weatherWidgetLeft}>
+              <h2>
+              <div className={styles.ldsroller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              </h2>
+            </div>
               <div className={styles.weatherWidgetRight}>
                 <div>
                   Loading weather...
