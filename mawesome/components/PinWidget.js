@@ -27,7 +27,7 @@ export default function PinnedCityWidget({ city }) {
                     <div className={styles.pinWidget}>
                         <div className={styles.pinWidgetRibbon}>
                             <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="weather icon" />
-                            <span>{weatherData.name}</span>
+                            <span onClick={()=>handleWidgetClick(city)}>{weatherData.name}</span>
                             <button
                                 onClick={() => unpinCity(city)}
                             ><ClearIcon fontSize="small" /></button>

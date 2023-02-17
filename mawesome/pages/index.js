@@ -1,17 +1,28 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { CityContext } from '../context/cityContext';
 import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import Sidebar from '../components/Sidebar';
 import Dashboard from '../components/Dashboard';
 import Footer from '../components/Footer';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
-  const { currentCity} = useContext(CityContext);
+  const { currentCity } = useContext(CityContext);
+  
+  const myRef = useRef(null);
 
+  const handleScroll = () => {
+    window.scrollBy({
+      top: '100vh',
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 
   useEffect(() => {
     if (currentCity) {
@@ -63,14 +74,14 @@ export default function Home() {
         <link rel="icon" href="/icon.png" />
       </Head>
       <div className={styles.mainContainer}>
-        <div className={styles.landingContainer}>
+        <div ref={myRef} className={styles.landingContainer}>
           <div className={styles.title}>
             <span>mawesome</span>
             <button className={styles.searchIcon} onClick={() => {
               //translate sidebar in from Right
               document.getElementById('sidebar').style.transform = 'translateX(0)';
             }}>
-              <ManageSearchIcon fontSize="large" />
+              <TravelExploreIcon fontSize="large" />
             </button>
           </div>
           <div className={styles.weatherWidgetContainer}>
@@ -87,6 +98,9 @@ export default function Home() {
               <h3>
                 {weather && weather.name}, {weather && weather.sys.country}
               </h3>
+            </div>
+            <div className={styles.goToDashboard} onClick={ handleScroll }>
+              Go To DashBoard <KeyboardArrowDownIcon fontSize='large'/>
             </div>
           </div>
         </div>

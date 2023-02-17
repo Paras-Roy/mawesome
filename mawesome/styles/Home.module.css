@@ -75,6 +75,7 @@
 
 .searchIcon {
     display: none !important;
+    margin-right: 10px;
 }
 
 .weatherWidgetContainer {
@@ -114,6 +115,26 @@
 .weatherWidgetRight h3 {
     font-size: 1.5em;
     font-weight: 300;
+}
+
+.goToDashboard{
+    color: var(--color-secondary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--bg-glass-light);
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.goToDashboard:hover{
+    background-color: var(--bg-glass-lighter);
 }
 
 .sidebar {
